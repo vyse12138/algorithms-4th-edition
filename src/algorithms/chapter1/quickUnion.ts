@@ -1,4 +1,4 @@
-export class UF2 {
+export class UF {
   /**
    * Number of union
    */
@@ -65,11 +65,7 @@ export class UF2 {
     if (pId === qId) {
       return
     }
-    for (let i in this.id) {
-      if (this.id[i] === pId) {
-        this.id[i] = qId
-      }
-    }
+    this.id[p] = q
     this.count--
   }
 }
