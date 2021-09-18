@@ -1,9 +1,11 @@
 import { UF } from './quickFind'
 import { UF as UF2 } from './quickUnion'
 import { UF as UF3 } from './weightQuickUnion'
+import { UF as UF4 } from './weightedQuickUnionWithPathCompression'
 
 export default function () {
   const size = 5000
+
   const input = []
   for (let i = 0; i < size * 3; i++) {
     input[i] = [
@@ -15,6 +17,7 @@ export default function () {
   const uf1 = new UF(size + 1)
   const uf2 = new UF2(size + 1)
   const uf3 = new UF3(size + 1)
+  const uf4 = new UF4(size + 1)
 
   const p1 = performance.now()
 
@@ -36,6 +39,12 @@ export default function () {
 
   const p4 = performance.now()
 
+  for (let i = 0; i < input.length; i++) {
+    uf4.union(input[i][0], input[i][1])
+  }
+
+  const p5 = performance.now()
+
   console.log(
     `Quick find method tooked ${
       Math.round((p2 - p1) * 100) / 100
@@ -51,5 +60,10 @@ export default function () {
     `Weighted Quick union method tooked ${
       Math.round((p4 - p3) * 100) / 100
     } ms for ${size} cases. Found ${uf3.count} unions.`
+  )
+  console.log(
+    `Weighted Quick union with path compression method tooked ${
+      Math.round((p5 - p4) * 100) / 100
+    } ms for ${size} cases. Found ${uf4.count} unions.`
   )
 }
