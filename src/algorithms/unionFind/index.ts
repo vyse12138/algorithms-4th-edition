@@ -1,7 +1,7 @@
-import { UF } from './quickFind'
-import { UF as UF2 } from './quickUnion'
-import { UF as UF3 } from './weightQuickUnion'
-import { UF as UF4 } from './weightedQuickUnionWithPathCompression'
+import UF1 from './quickFind'
+import UF2 from './quickUnion'
+import UF3 from './weightQuickUnion'
+import UF4 from './weightedQuickUnionWithPathCompression'
 
 export default () => {
   const SIZE = 2500
@@ -14,7 +14,7 @@ export default () => {
     ]
   }
 
-  const uf1 = new UF(SIZE + 1)
+  const uf1 = new UF1(SIZE + 1)
   const uf2 = new UF2(SIZE + 1)
   const uf3 = new UF3(SIZE + 1)
   const uf4 = new UF4(SIZE + 1)

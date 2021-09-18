@@ -1,4 +1,4 @@
-export class UF {
+export default class UF {
   /**
    * Number of union
    */
