@@ -49,27 +49,23 @@ export default () => {
   console.log(
     `Quick find method:
 Tooked ${Math.round((p2 - p1) * 100) / 100} ms for ${SIZE * TIMES} runs. 
-There are ${uf1.count} unions in ${SIZE} points.
-`
+There are ${uf1.count} unions in ${SIZE} points.`
   )
 
   console.log(
     `Quick union method:
 Tooked ${Math.round((p3 - p2) * 100) / 100} ms for ${SIZE * TIMES} runs. 
-There are ${uf2.count} unions in ${SIZE} points.
-`
+There are ${uf2.count} unions in ${SIZE} points.`
   )
   console.log(
     `Weighted Quick union method:
 Tooked ${Math.round((p4 - p3) * 100) / 100} ms for ${SIZE * TIMES} runs. 
-There are ${uf3.count} unions in ${SIZE} points.
-`
+There are ${uf3.count} unions in ${SIZE} points.`
   )
   console.log(
     `Weighted Quick union with path compression method:
 Tooked ${Math.round((p5 - p4) * 100) / 100} ms for ${SIZE * TIMES} runs. 
-There are ${uf4.count} unions in ${SIZE} points.
-`
+There are ${uf4.count} unions in ${SIZE} points.`
   )
 
   console.log('[unionFind] Testing finished.')
