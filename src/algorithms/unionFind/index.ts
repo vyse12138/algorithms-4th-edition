@@ -44,7 +44,7 @@ export default () => {
   }
 
   const p5 = performance.now()
-  console.log('[unionFind] Testing...')
+  console.warn('[unionFind] Testing...')
 
   console.log(
     `Quick find method:
@@ -68,5 +68,5 @@ Tooked ${Math.round((p5 - p4) * 100) / 100} ms for ${SIZE * TIMES} runs.
 There are ${uf4.count} unions in ${SIZE} points.`
   )
 
-  console.log('[unionFind] Testing finished.')
+  console.warn('[unionFind] Testing finished.')
 }
