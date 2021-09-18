@@ -41,6 +41,8 @@ export class UF {
   /**
    * Find the union of a point
    *
+   * Time complexity: O(m) where m is the height of the tree
+   *
    * @param p Point
    * @returns Union
    */
@@ -56,8 +58,6 @@ export class UF {
    *
    * @param p Point 1
    * @param q Point 2
-   * @param method Method u wanna use, 1 for quickFind, 2 for quickUnion
-   * @returns Void
    */
   union(p: number, q: number): void {
     let pId = this.find(p)
@@ -65,7 +65,7 @@ export class UF {
     if (pId === qId) {
       return
     }
-    this.id[p] = q
+    this.id[pId] = qId
     this.count--
   }
 }

@@ -10,6 +10,11 @@ export class UF {
   id: number[] = []
 
   /**
+   * Array to store the tree size of all points
+   */
+  size: number[] = []
+
+  /**
    * Init a new union finder instance with the given number of points
    *
    * @param n Number of points
@@ -24,6 +29,7 @@ export class UF {
     this.count = n
     for (let i = 0; i < n; i++) {
       this.id[i] = i
+      this.size[i] = i
     }
   }
 
@@ -41,17 +47,20 @@ export class UF {
   /**
    * Find the union of a point
    *
+   * Time complexity: O(log n)
+   *
    * @param p Point
    * @returns Union
    */
   find(p: number): number {
-    return this.id[p]
+    while (p !== this.id[p]) {
+      p = this.id[p]
+    }
+    return p
   }
 
   /**
    * Function to unionize two points
-   *
-   * Time complexity: O(n)
    *
    * @param p Point 1
    * @param q Point 2
@@ -62,10 +71,13 @@ export class UF {
     if (pId === qId) {
       return
     }
-    for (let i in this.id) {
-      if (this.id[i] === pId) {
-        this.id[i] = qId
-      }
+
+    if (this.size[pId] < this.size[qId]) {
+      this.id[pId] = qId
+      this.size[qId] += this.size[pId]
+    } else {
+      this.id[qId] = pId
+      this.size[pId] += this.size[qId]
     }
     this.count--
   }
