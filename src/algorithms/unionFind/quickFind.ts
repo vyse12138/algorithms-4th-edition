@@ -1,3 +1,6 @@
+/**
+ * UnionFind class implemented by quick find method
+ */
 export default class UF {
   /**
    * Number of union

@@ -1,3 +1,6 @@
+/**
+ * UnionFind class implemented by weighted quick union method
+ */
 export default class UF {
   /**
    * Number of union
