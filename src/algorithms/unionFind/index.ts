@@ -3,21 +3,21 @@ import { UF as UF2 } from './quickUnion'
 import { UF as UF3 } from './weightQuickUnion'
 import { UF as UF4 } from './weightedQuickUnionWithPathCompression'
 
-export default function () {
-  const size = 5000
-
+export default () => {
+  const SIZE = 2500
+  const TIMES = 2
   const input = []
-  for (let i = 0; i < size * 3; i++) {
+  for (let i = 0; i < SIZE * TIMES; i++) {
     input[i] = [
-      Math.round(Math.random() * size),
-      Math.round(Math.random() * size)
+      Math.round(Math.random() * SIZE),
+      Math.round(Math.random() * SIZE)
     ]
   }
 
-  const uf1 = new UF(size + 1)
-  const uf2 = new UF2(size + 1)
-  const uf3 = new UF3(size + 1)
-  const uf4 = new UF4(size + 1)
+  const uf1 = new UF(SIZE + 1)
+  const uf2 = new UF2(SIZE + 1)
+  const uf3 = new UF3(SIZE + 1)
+  const uf4 = new UF4(SIZE + 1)
 
   const p1 = performance.now()
 
@@ -44,26 +44,33 @@ export default function () {
   }
 
   const p5 = performance.now()
+  console.log('[unionFind] Testing...')
 
   console.log(
-    `Quick find method tooked ${
-      Math.round((p2 - p1) * 100) / 100
-    } ms for ${size} cases. Found ${uf1.count} unions.`
+    `Quick find method:
+Tooked ${Math.round((p2 - p1) * 100) / 100} ms for ${SIZE * TIMES} runs. 
+There are ${uf1.count} unions in ${SIZE} points.
+`
   )
 
   console.log(
-    `Quick union method tooked ${
-      Math.round((p3 - p2) * 100) / 100
-    } ms for ${size} cases. Found ${uf2.count} unions.`
+    `Quick union method:
+Tooked ${Math.round((p3 - p2) * 100) / 100} ms for ${SIZE * TIMES} runs. 
+There are ${uf2.count} unions in ${SIZE} points.
+`
   )
   console.log(
-    `Weighted Quick union method tooked ${
-      Math.round((p4 - p3) * 100) / 100
-    } ms for ${size} cases. Found ${uf3.count} unions.`
+    `Weighted Quick union method:
+Tooked ${Math.round((p4 - p3) * 100) / 100} ms for ${SIZE * TIMES} runs. 
+There are ${uf3.count} unions in ${SIZE} points.
+`
   )
   console.log(
-    `Weighted Quick union with path compression method tooked ${
-      Math.round((p5 - p4) * 100) / 100
-    } ms for ${size} cases. Found ${uf4.count} unions.`
+    `Weighted Quick union with path compression method:
+Tooked ${Math.round((p5 - p4) * 100) / 100} ms for ${SIZE * TIMES} runs. 
+There are ${uf4.count} unions in ${SIZE} points.
+`
   )
+
+  console.log('[unionFind] Testing finished.')
 }
