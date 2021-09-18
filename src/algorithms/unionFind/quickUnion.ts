@@ -1,5 +1,5 @@
 /**
- * UnionFind class implemented by quick find method
+ * UnionFind class implemented by quick union method
  */
 export default class UF {
   /**
