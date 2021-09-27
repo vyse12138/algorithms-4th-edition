@@ -1,6 +1,7 @@
 import Quick from './quickSort'
 import Selection from './selectionSort'
 import Insertion from './insertionSort'
+import Shell from './Shell'
 
 export default () => {
   const SIZE = 10000
@@ -34,6 +35,13 @@ export default () => {
   const p6 = performance.now()
   const s3 = Insertion.isSorted(input)
 
+  random()
+
+  const p7 = performance.now()
+  Shell.sort(input)
+  const p8 = performance.now()
+  const s4 = Shell.isSorted(input)
+
   console.warn(`[sort] Testing for ${SIZE} cases...`)
 
   console.log(
@@ -52,6 +60,10 @@ export default () => {
       s3 ? `took ${Math.round((p6 - p5) * 100) / 100} ms` : 'failed...'
     }`
   )
-
+  console.log(
+    `Shell sort ${
+      s4 ? `took ${Math.round((p8 - p7) * 100) / 100} ms` : 'failed...'
+    }`
+  )
   console.warn('[sort] Testing finished.')
 }
