@@ -2,6 +2,7 @@ import Quick from './quickSort'
 import Selection from './selectionSort'
 import Insertion from './insertionSort'
 import Shell from './Shell'
+import Merge from './Merge'
 
 export default () => {
   const SIZE = 10000
@@ -42,6 +43,13 @@ export default () => {
   const p8 = performance.now()
   const s4 = Shell.isSorted(input)
 
+  random()
+
+  const p9 = performance.now()
+  Merge.sort(input)
+  const p10 = performance.now()
+  const s5 = Merge.isSorted(input)
+
   console.warn(`[sort] Testing for ${SIZE} cases...`)
 
   console.log(
@@ -63,6 +71,11 @@ export default () => {
   console.log(
     `Shell sort ${
       s4 ? `took ${Math.round((p8 - p7) * 100) / 100} ms` : 'failed...'
+    }`
+  )
+  console.log(
+    `Merge sort ${
+      s5 ? `took ${Math.round((p10 - p9) * 100) / 100} ms` : 'failed...'
     }`
   )
   console.warn('[sort] Testing finished.')
