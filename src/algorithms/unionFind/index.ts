@@ -44,28 +44,28 @@ export default () => {
   }
 
   const p5 = performance.now()
-  console.warn('[unionFind] Testing...')
+  console.warn(`[unionFind] Testing for ${SIZE * TIMES} cases ...`)
 
   console.log(
-    `Quick find method:
-Tooked ${Math.round((p2 - p1) * 100) / 100} ms for ${SIZE * TIMES} runs. 
-There are ${uf1.count} unions in ${SIZE} points.`
+    `Quick find method tooked ${Math.round((p2 - p1) * 100) / 100} ms. 
+Found ${uf1.count} unions in ${SIZE} points.`
   )
 
   console.log(
-    `Quick union method:
-Tooked ${Math.round((p3 - p2) * 100) / 100} ms for ${SIZE * TIMES} runs. 
-There are ${uf2.count} unions in ${SIZE} points.`
+    `Quick union method tooked ${Math.round((p3 - p2) * 100) / 100} ms. 
+Found ${uf2.count} unions in ${SIZE} points.`
   )
   console.log(
-    `Weighted Quick union method:
-Tooked ${Math.round((p4 - p3) * 100) / 100} ms for ${SIZE * TIMES} runs. 
-There are ${uf3.count} unions in ${SIZE} points.`
+    `Weighted Quick union method tooked ${
+      Math.round((p4 - p3) * 100) / 100
+    } ms. 
+Found ${uf3.count} unions in ${SIZE} points.`
   )
   console.log(
-    `Weighted Quick union with path compression method:
-Tooked ${Math.round((p5 - p4) * 100) / 100} ms for ${SIZE * TIMES} runs. 
-There are ${uf4.count} unions in ${SIZE} points.`
+    `Weighted Quick union with path compression method tooked ${
+      Math.round((p5 - p4) * 100) / 100
+    } ms. 
+Found ${uf4.count} unions in ${SIZE} points.`
   )
 
   console.warn('[unionFind] Testing finished.')
