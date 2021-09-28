@@ -1,7 +1,7 @@
 import { Comparable } from './types'
 
 /**
- * Merge sort class (top down)
+ * Merge sort class (bottom up)
  *
  * Time complexity: O(nlog(n))
  */
@@ -14,15 +14,11 @@ export default class Merge {
    * @param a Array to sort
    */
   static sort = (a: Comparable[]) => {
-    Merge.s(a, 0, a.length - 1)
-  }
-
-  private static s = (a: Comparable[], lo: number, hi: number) => {
-    if (lo >= hi) return
-    let mid = lo + Math.floor((hi - lo) / 2)
-    Merge.s(a, lo, mid)
-    Merge.s(a, mid + 1, hi)
-    Merge.merge(a, lo, mid, hi)
+    for (let sz = 1; sz < a.length; sz *= 2) {
+      for (let lo = 0; lo < a.length; lo += 2 * sz) {
+        this.merge(a, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, a.length - 1))
+      }
+    }
   }
 
   static merge = (a: Comparable[], lo: number, mid: number, hi: number) => {
