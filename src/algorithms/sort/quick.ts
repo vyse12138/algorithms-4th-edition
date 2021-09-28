@@ -1,23 +1,17 @@
 import { Comparable } from './types'
 
 /**
- * Insertion sort class
+ * Quick sort class
  *
- * Time complexity: O(n^2)
+ * Time complexity:
  */
-export default class Selection {
+export default class Quick {
   /**
    * Sort the array
    *
-   * @param a Array to sortss
+   * @param a Array to sort
    */
-  static sort = (a: Comparable[]) => {
-    for (let i = 0; i < a.length; i++) {
-      for (let j = i + 1; j > 0 && a[j - 1] > a[j]; j--) {
-        Selection.exch(a, j, j - 1)
-      }
-    }
-  }
+  static sort = (a: Comparable[]) => {}
 
   /**
    * Compare two value and tell which one is less
@@ -49,7 +43,7 @@ export default class Selection {
    */
   static isSorted = (a: Comparable[]): boolean => {
     for (let i = 1; i < a.length; i++) {
-      if (Selection.less(a[i], a[i - 1])) {
+      if (Quick.less(a[i], a[i - 1])) {
         return false
       }
     }

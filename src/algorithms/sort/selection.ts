@@ -1,7 +1,7 @@
 import { Comparable } from './types'
 
 /**
- * Insertion sort class
+ * Selection sort class
  *
  * Time complexity: O(n^2)
  */
@@ -9,13 +9,17 @@ export default class Selection {
   /**
    * Sort the array
    *
-   * @param a Array to sortss
+   * @param a Array to sort
    */
   static sort = (a: Comparable[]) => {
     for (let i = 0; i < a.length; i++) {
-      for (let j = i + 1; j > 0 && a[j - 1] > a[j]; j--) {
-        Selection.exch(a, j, j - 1)
+      let min = i
+      for (let j = i + 1; j < a.length; j++) {
+        if (a[j] < a[min]) {
+          min = j
+        }
       }
+      Selection.exch(a, i, min)
     }
   }
 

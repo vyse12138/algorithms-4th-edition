@@ -1,21 +1,26 @@
 import { Comparable } from './types'
 
 /**
- * Insertion sort class
+ * Shell sort class
  *
- * Time complexity: O(n^2)
+ * Time complexity: O(n^(3/2))
  */
-export default class Selection {
+export default class Shell {
   /**
    * Sort the array
    *
-   * @param a Array to sortss
+   * @param a Array to sort
    */
   static sort = (a: Comparable[]) => {
-    for (let i = 0; i < a.length; i++) {
-      for (let j = i + 1; j > 0 && a[j - 1] > a[j]; j--) {
-        Selection.exch(a, j, j - 1)
+    let h = 1
+    while (h < a.length / 3) h = 3 * h + 1
+    while (h >= 1) {
+      for (let i = h; i < a.length; i++) {
+        for (let j = i; a[j] < a[j - h]; j -= h) {
+          Shell.exch(a, j, j - h)
+        }
       }
+      h = Math.floor(h / 3)
     }
   }
 
@@ -49,7 +54,7 @@ export default class Selection {
    */
   static isSorted = (a: Comparable[]): boolean => {
     for (let i = 1; i < a.length; i++) {
-      if (Selection.less(a[i], a[i - 1])) {
+      if (Shell.less(a[i], a[i - 1])) {
         return false
       }
     }

@@ -1,21 +1,40 @@
 import { Comparable } from './types'
 
 /**
- * Insertion sort class
+ * Merge sort class (bottom up)
  *
- * Time complexity: O(n^2)
+ * Time complexity: O(nlog(n))
  */
-export default class Selection {
+export default class Merge {
+  static aux: Comparable[] = []
+
   /**
    * Sort the array
    *
-   * @param a Array to sortss
+   * @param a Array to sort
    */
   static sort = (a: Comparable[]) => {
-    for (let i = 0; i < a.length; i++) {
-      for (let j = i + 1; j > 0 && a[j - 1] > a[j]; j--) {
-        Selection.exch(a, j, j - 1)
+    for (let sz = 1; sz < a.length; sz *= 2) {
+      for (let lo = 0; lo < a.length; lo += 2 * sz) {
+        this.merge(a, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, a.length - 1))
       }
+    }
+  }
+
+  static merge = (a: Comparable[], lo: number, mid: number, hi: number) => {
+    let i = lo,
+      j = mid + 1
+
+    if (a[mid] < a[mid + 1]) return
+
+    for (let k = lo; k <= hi; k++) {
+      Merge.aux[k] = a[k]
+    }
+    for (let k = lo; k <= hi; k++) {
+      if (i > mid) a[k] = Merge.aux[j++]
+      else if (j > hi) a[k] = Merge.aux[i++]
+      else if (Merge.aux[j] < Merge.aux[i]) a[k] = Merge.aux[j++]
+      else a[k] = Merge.aux[i++]
     }
   }
 
@@ -49,7 +68,7 @@ export default class Selection {
    */
   static isSorted = (a: Comparable[]): boolean => {
     for (let i = 1; i < a.length; i++) {
-      if (Selection.less(a[i], a[i - 1])) {
+      if (Merge.less(a[i], a[i - 1])) {
         return false
       }
     }
