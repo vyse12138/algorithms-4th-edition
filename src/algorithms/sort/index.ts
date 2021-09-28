@@ -1,9 +1,9 @@
-import Quick from './quickSort'
-import Selection from './selectionSort'
-import Insertion from './insertionSort'
-import Shell from './Shell'
-import Merge from './Merge'
-import Merge2 from './MergeBottomUp'
+import Quick from './quick'
+import Selection from './selection'
+import Insertion from './insertion'
+import Shell from './shell'
+import Merge from './mergeTopDown'
+import Merge2 from './mergeBottomUp'
 
 export default () => {
   const SIZE = 10000
