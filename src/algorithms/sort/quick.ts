@@ -11,8 +11,33 @@ export default class Quick {
    *
    * @param a Array to sort
    */
-  static sort = (a: Comparable[]) => {}
+  static sort = (a: Comparable[]) => {
+    this.quickSort(a, 0, a.length - 1)
+  }
 
+  private static quickSort(a: Comparable[], lo: number, hi: number) {
+    if (lo >= hi) return
+
+    let j = this.partition(a, lo, hi)
+
+    this.quickSort(a, lo, j - 1)
+    this.quickSort(a, j + 1, hi)
+  }
+
+  private static partition(a: Comparable[], lo: number, hi: number): number {
+    let i = lo,
+      j = hi + 1,
+      v = a[lo]
+    while (true) {
+      while (a[++i] < v) if (i === hi) break
+      while (v < a[--j]) if (j === lo) break
+      if (i >= j) break
+
+      this.exch(a, i, j)
+    }
+    this.exch(a, lo, j)
+    return j
+  }
   /**
    * Compare two value and tell which one is less
    *

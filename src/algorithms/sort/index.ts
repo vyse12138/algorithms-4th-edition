@@ -1,9 +1,9 @@
-import Quick from './quick'
 import Selection from './selection'
 import Insertion from './insertion'
 import Shell from './shell'
 import Merge from './mergeTopDown'
 import Merge2 from './mergeBottomUp'
+import Quick from './quick'
 
 export default () => {
   const SIZE = 10000
@@ -58,6 +58,13 @@ export default () => {
   const p12 = performance.now()
   const s6 = Merge2.isSorted(input)
 
+  random()
+
+  const p13 = performance.now()
+  Quick.sort(input)
+  const p14 = performance.now()
+  const s7 = Quick.isSorted(input)
+
   console.warn(`[sort] Testing for ${SIZE} cases...`)
 
   console.log(
@@ -89,6 +96,11 @@ export default () => {
   console.log(
     `Merge sort (bottom up) ${
       s6 ? `took ${Math.round((p12 - p11) * 100) / 100} ms` : 'failed...'
+    }`
+  )
+  console.log(
+    `Quick sort ${
+      s7 ? `took ${Math.round((p14 - p13) * 100) / 100} ms` : 'failed...'
     }`
   )
   console.warn('[sort] Testing finished.')
