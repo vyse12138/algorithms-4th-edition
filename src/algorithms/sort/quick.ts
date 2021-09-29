@@ -3,7 +3,7 @@ import { Comparable } from './types'
 /**
  * Quick sort class
  *
- * Time complexity:
+ * Time complexity: O(n log n)
  */
 export default class Quick {
   /**
