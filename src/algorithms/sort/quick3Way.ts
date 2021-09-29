@@ -1,7 +1,7 @@
 import { Comparable } from './types'
 import Insertion from './insertion'
 /**
- * Quick sort class
+ * Quick sort class ( with 3 ways)
  *
  * Time complexity: O(n log n)
  */
@@ -16,28 +16,27 @@ export default class Quick {
   }
 
   private static quickSort(a: Comparable[], lo: number, hi: number) {
-    if (lo >= hi) return
-
-    let j = this.partition(a, lo, hi)
-
-    this.quickSort(a, lo, j - 1)
-    this.quickSort(a, j + 1, hi)
-  }
-
-  private static partition(a: Comparable[], lo: number, hi: number): number {
-    let i = lo,
-      j = hi + 1,
-      v = a[lo]
-    while (true) {
-      while (a[++i] < v) if (i === hi) break
-      while (v < a[--j]) if (j === lo) break
-      if (i >= j) break
-
-      this.exch(a, i, j)
+    if (lo + 10 > hi) {
+      Insertion.sort(a, lo, hi)
+      return
     }
-    this.exch(a, lo, j)
-    return j
+
+    let lt = lo,
+      i = lo + 1,
+      gt = hi
+
+    let v = a[lo]
+
+    while (i <= gt) {
+      if (a[i] < v) this.exch(a, lt++, i++)
+      else if (a[i] > v) this.exch(a, i, gt--)
+      else i++
+    } // this achieves a[lo ... lt-1] < v = a[ly ... gt] < a[gt+1 ... hi]
+
+    this.quickSort(a, lo, lt - 1)
+    this.quickSort(a, gt + 1, hi)
   }
+
   /**
    * Compare two value and tell which one is less
    *
