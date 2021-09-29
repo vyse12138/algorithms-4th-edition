@@ -5,16 +5,18 @@ import { Comparable } from './types'
  *
  * Time complexity: O(n^2)
  */
-export default class Selection {
+export default class Insertion {
   /**
    * Sort the array
    *
    * @param a Array to sortss
+   * @param lo Optional starting index, default = `0`
+   * @param hi Optional finishing index, default = `a.length`
    */
-  static sort = (a: Comparable[]) => {
-    for (let i = 0; i < a.length; i++) {
+  static sort = (a: Comparable[], lo: number = 0, hi: number = a.length) => {
+    for (let i = lo; i < hi; i++) {
       for (let j = i + 1; j > 0 && a[j - 1] > a[j]; j--) {
-        Selection.exch(a, j, j - 1)
+        Insertion.exch(a, j, j - 1)
       }
     }
   }
@@ -49,7 +51,7 @@ export default class Selection {
    */
   static isSorted = (a: Comparable[]): boolean => {
     for (let i = 1; i < a.length; i++) {
-      if (Selection.less(a[i], a[i - 1])) {
+      if (Insertion.less(a[i], a[i - 1])) {
         return false
       }
     }

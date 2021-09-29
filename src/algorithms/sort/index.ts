@@ -4,6 +4,7 @@ import Shell from './shell'
 import Merge from './mergeTopDown'
 import Merge2 from './mergeBottomUp'
 import Quick from './quick'
+import Quick3 from './quick3Way'
 
 export default () => {
   const SIZE = 10000
@@ -65,6 +66,13 @@ export default () => {
   const p14 = performance.now()
   const s7 = Quick.isSorted(input)
 
+  random()
+
+  const p15 = performance.now()
+  Quick3.sort(input)
+  const p16 = performance.now()
+  const s8 = Quick3.isSorted(input)
+
   console.warn(`[sort] Testing for ${SIZE} cases...`)
 
   console.log(
@@ -101,6 +109,11 @@ export default () => {
   console.log(
     `Quick sort ${
       s7 ? `took ${Math.round((p14 - p13) * 100) / 100} ms` : 'failed...'
+    }`
+  )
+  console.log(
+    `Quick sort (3 ways)${
+      s8 ? `took ${Math.round((p16 - p15) * 100) / 100} ms` : 'failed...'
     }`
   )
   console.warn('[sort] Testing finished.')
