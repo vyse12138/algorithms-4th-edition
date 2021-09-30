@@ -5,6 +5,7 @@ import Merge from './mergeTopDown'
 import Merge2 from './mergeBottomUp'
 import Quick from './quick'
 import Quick3 from './quick3Way'
+import PQ from './priorityQueue'
 
 export default () => {
   const SIZE = 10000
@@ -73,6 +74,20 @@ export default () => {
   const p16 = performance.now()
   const s8 = Quick3.isSorted(input)
 
+  random()
+
+  const pq = new PQ(SIZE)
+  const res = []
+  const p17 = performance.now()
+  for (let i = 0; i < SIZE; i++) {
+    pq.insert(input[i])
+  }
+  for (let i = 0; i < Math.floor(SIZE); i++) {
+    res.push(pq.delMax())
+  }
+  const p18 = performance.now()
+  const s9 = Quick3.isSorted(res.reverse())
+
   console.warn(`[sort] Testing for ${SIZE} cases...`)
 
   console.log(
@@ -114,6 +129,11 @@ export default () => {
   console.log(
     `Quick sort (3 ways)${
       s8 ? `took ${Math.round((p16 - p15) * 100) / 100} ms` : 'failed...'
+    }`
+  )
+  console.log(
+    `Priority Queue${
+      s9 ? `took ${Math.round((p18 - p17) * 100) / 100} ms` : 'failed...'
     }`
   )
   console.warn('[sort] Testing finished.')
