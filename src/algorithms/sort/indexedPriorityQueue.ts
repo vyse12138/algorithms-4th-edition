@@ -3,7 +3,7 @@ import { Comparable } from './types'
 /**
  * Priority queue class
  *
- * find the top m largest (or smallest) elements in an input size of n
+ * find the top m smallest (or largest) elements in an input size of n
  *
  * Time complexity: nm (n log m if based on binary heap )
  *
@@ -25,12 +25,35 @@ export default class PriorityQueue {
   /**
    * Insert an element into the priority queue
    *
+   * @param k the element's index
    * @param v the element to insert
    */
-  insert = (v: Comparable) => {
+  insert = (k: number, v: Comparable) => {
     this.pq[++this.N] = v
     this.swim(this.N)
   }
+
+  /**
+   * Change an element by index
+   *
+   * @param k the index we want to change
+   * @param v the new element
+   */
+  change = (k: number, v: Comparable) => {}
+
+  /**
+   * Check if there's an element with index `k`
+   *
+   * @param k the index
+   */
+  contains = (k: number) => {}
+
+  /**
+   * Delete index `k` and it's element
+   *
+   * @param k the index
+   */
+  delete = (k: number) => {}
 
   /**
    * Return the maximum element
