@@ -15,6 +15,13 @@ export default class Quick {
     this.quickSort(a, 0, a.length - 1)
   }
 
+  /**
+   * Internal quick sort method
+   *
+   * @param  {Comparable[]} a array to sort
+   * @param  {number} lo low
+   * @param  {number} hi high
+   */
   private static quickSort(a: Comparable[], lo: number, hi: number) {
     if (lo + 10 > hi) {
       Insertion.sort(a, lo, hi)

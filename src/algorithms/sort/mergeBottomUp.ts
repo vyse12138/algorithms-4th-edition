@@ -20,7 +20,14 @@ export default class Merge {
       }
     }
   }
-
+  /**
+   * Internal merge sort method
+   *
+   * @param  {Comparable[]} a array
+   * @param  {number} lo low
+   * @param  {number} mid mid
+   * @param  {number} hi high
+   */
   static merge = (a: Comparable[], lo: number, mid: number, hi: number) => {
     let i = lo,
       j = mid + 1

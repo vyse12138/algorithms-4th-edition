@@ -15,6 +15,13 @@ export default class Quick {
     this.quickSort(a, 0, a.length - 1)
   }
 
+  /**
+   * Internal sort method
+   *
+   * @param  {Comparable[]} a array to sort
+   * @param  {number} lo low
+   * @param  {number} hi high
+   */
   private static quickSort(a: Comparable[], lo: number, hi: number) {
     if (lo >= hi) return
 
@@ -24,6 +31,12 @@ export default class Quick {
     this.quickSort(a, j + 1, hi)
   }
 
+  /** Find partition point
+   * @param  {Comparable[]} a array
+   * @param  {number} lo low
+   * @param  {number} hi high
+   * @returns number
+   */
   private static partition(a: Comparable[], lo: number, hi: number): number {
     let i = lo,
       j = hi + 1,
