@@ -1,7 +1,7 @@
 import { Key, Value } from './type'
 
 /**
- * Symbol Table class
+ * Symbol Table class (based on linked list)
  *
  * elementary map
  *
