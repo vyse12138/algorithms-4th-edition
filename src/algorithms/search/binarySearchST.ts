@@ -1,7 +1,7 @@
 import { Key, Value, Node } from './type'
 
 /**
- * Sequential Search Symbol Table class (based on JS array instead of LinkedList)
+ * Binary Search Symbol Table class
  *
  * elementary map
  *
@@ -14,10 +14,14 @@ export default class ST {
    * Create a new instance of Symbol Table class
    */
   constructor() {
-    this.array = []
+    this.keys = []
+    this.values = []
+    this.N = 0
   }
 
-  private array: Array<Node>
+  private keys: Array<Key>
+  private values: Array<Value>
+  private N: number
 
   /**
    * Put a new key-value pair into the map
@@ -26,11 +30,19 @@ export default class ST {
    * @param  {Value} val the value related to the key
    */
   put = (key: Key, value: Value) => {
-    if (this.has(key)) {
-      this.array.find((n) => n.key === key)!.value = value
+    let i = this.rank(key)
+    if (i < this.N && this.keys[i] === key) {
+      this.values[i] = value
       return
     }
-    this.array.push({ key, value })
+
+    for (let j = this.N; j > 1; j--) {
+      this.keys[j] = this.keys[j - 1]
+      this.values[j] = this.values[j - 1]
+    }
+    this.keys[i] = key
+    this.values[i] = value
+    this.N++
   }
 
   /**
@@ -40,7 +52,13 @@ export default class ST {
    * @returns Value
    */
   get = (key: Key): Value => {
-    return this.array.find((n) => n.key === key)?.value ?? null
+    if (this.isEmpty()) return null
+    let i = this.rank(key)
+
+    if (i < this.N && this.keys[i] === key) {
+      return this.values[i]
+    }
+    return null
   }
 
   /**
@@ -49,6 +67,7 @@ export default class ST {
    */
   delete = (key: Key) => {
     this.put(key, null)
+    this.N -= 2
   }
 
   /**
@@ -75,7 +94,7 @@ export default class ST {
    * @returns size of the map
    */
   size = (): number => {
-    return this.array.filter((n) => n.value !== null).length
+    return this.N
   }
 
   /**
@@ -84,8 +103,8 @@ export default class ST {
    * @param  {Key} hi highest key
    * @returns array of keys
    */
-  keys = (lo: Key = this.min(), hi: Key = this.max()): Key[] => {
-    return this.array.filter((n) => this.has(n.key)).map((n) => n.key)
+  getKeys = (lo: Key = this.min(), hi: Key = this.max()): Key[] => {
+    return this.keys
   }
 
   /**
@@ -128,7 +147,19 @@ export default class ST {
    * @returns Number
    */
   rank = (key: Key): number => {
-    return 1
+    let lo = 0,
+      hi = this.N - 1
+    while (lo < hi) {
+      let mid = Math.floor(lo + (hi - lo) / 2)
+      if (key < this.keys[mid]) {
+        hi = mid - 1
+      } else if (key > this.keys[mid]) {
+        lo = mid + 1
+      } else {
+        return mid
+      }
+    }
+    return lo
   }
 
   /**
