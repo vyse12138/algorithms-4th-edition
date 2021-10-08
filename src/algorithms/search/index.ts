@@ -62,6 +62,7 @@ export default () => {
   for (let i = 0; i < SIZE; i++) {
     map3.get(i)
   }
+
   let p9 = performance.now()
 
   for (let i = 0; i < SIZE; i++) {
