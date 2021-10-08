@@ -122,6 +122,7 @@ export default () => {
       Math.round((p9 - p8) * 100) / 100
     } ms for getting ${SIZE} elements`
   )
+
   // console.log(
   //   `Binary search tree took ${
   //     Math.round((p10 - p9) * 100) / 100
