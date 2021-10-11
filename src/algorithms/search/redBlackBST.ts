@@ -1,3 +1,4 @@
+import node from '../linkedList/node'
 import { Key, Value } from './type'
 
 class TreeNode {
@@ -51,6 +52,7 @@ export default class RBBST {
    */
   put = (key: Key, value: Value) => {
     this.root = this.putR(this.root, key, value)
+    this.root.color = this.BLACK
   }
 
   /** Internal recursive function for put
@@ -59,18 +61,34 @@ export default class RBBST {
    * @param  {Key} key
    * @returns Value
    */
-  private putR(node: TreeNode | null, key: Key, value: Value): TreeNode | null {
-    if (node === null) {
+  private putR(h: TreeNode | null, key: Key, value: Value): TreeNode {
+    if (h === null) {
       return new TreeNode(key, value, 1, this.RED)
     }
 
-    if (key < node.key) node.left = this.putR(node.left, key, value)
-    else if (key > node.key) node.right = this.putR(node.right, key, value)
-    else node.value = value
+    if (key < h.key) {
+      h.left = this.putR(h.left, key, value)
+    } else if (key > h.key) {
+      h.right = this.putR(h.right, key, value)
+    } else {
+      h.value = value
+    }
 
-    node.N = this.size(node.left) + this.size(node.right) + 1
+    if (this.isRed(h.right) && !this.isRed(h.left)) {
+      h = this.rotateLeft(h)
+    }
 
-    return node
+    if (this.isRed(h.left) && this.isRed(h.left!.left)) {
+      h = this.rotateRight(h)
+    }
+
+    if (this.isRed(h.left) && this.isRed(h.right)) {
+      this.flipColors(h)
+    }
+
+    h.N = this.size(h.left) + this.size(h.right) + 1
+
+    return h
   }
 
   /**
@@ -123,6 +141,64 @@ export default class RBBST {
     return node
   }
 
+  /** rotate a right red link to left
+   *
+   * @param  {TreeNode} h parent tree node
+   * @returns TreeNode the new parent node
+   */
+  private rotateLeft = (h: TreeNode): TreeNode => {
+    if (h.right) {
+      const x: TreeNode = h.right
+
+      h.right = x.left
+
+      x.left = h
+
+      x.color = h.color
+      h.color = this.RED
+
+      x.N = h.N
+
+      h.N = 1 + this.size(h.left) + this.size(h.right)
+
+      return x
+    }
+    return h
+  }
+
+  /** rotate a left red link to right
+   *
+   * @param  {TreeNode} h parent tree node
+   * @returns TreeNode the new parent node
+   */
+  private rotateRight = (h: TreeNode): TreeNode => {
+    if (h.left) {
+      const x: TreeNode = h.left
+
+      h.left = x.right
+
+      x.right = h
+
+      x.color = h.color
+      h.color = this.RED
+
+      x.N = h.N
+
+      h.N = 1 + this.size(h.left) + this.size(h.right)
+
+      return x
+    }
+    return h
+  }
+
+  private flipColors = (h: TreeNode) => {
+    if (h.left && h.right) {
+      h.color = this.RED
+
+      h.left.color = this.BLACK
+      h.right.color = this.BLACK
+    }
+  }
   /**
    * Get the size of the map
    * @returns size of the map

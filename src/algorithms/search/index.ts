@@ -1,6 +1,7 @@
 import ST from './sequentialSearchST'
 import ST2 from './binarySearchST'
 import BST from './binarySearchTree'
+import RBBST from './redBlackBST'
 
 export default () => {
   const SIZE = 5000
@@ -8,6 +9,7 @@ export default () => {
   let map1 = new ST()
   let map2 = new ST2()
   let map3 = new BST()
+  let map4 = new RBBST()
 
   // ST1
   let p1 = performance.now()
@@ -55,6 +57,10 @@ export default () => {
     map3.put(Math.floor(Math.random() * SIZE), Math.floor(Math.random() * SIZE))
   }
 
+  // for (let i = 0; i < SIZE; i++) {
+  //   map4.put(i, i)
+  // }
+
   // console.log('BST Min: ' + map3.min())
   // console.log('BST Max: ' + map3.max())
 
@@ -69,7 +75,33 @@ export default () => {
     map3.delete(i)
   }
 
+  // RBBST
   let p10 = performance.now()
+
+  for (let i = 0; i < SIZE; i++) {
+    map4.put(Math.floor(Math.random() * SIZE), Math.floor(Math.random() * SIZE))
+  }
+
+  // for (let i = 0; i < SIZE; i++) {
+  //   map4.put(i, i)
+  // }
+
+  // console.log('BST Min: ' + map3.min())
+  // console.log('BST Max: ' + map3.max())
+
+  let p11 = performance.now()
+
+  // for (let i = 0; i < SIZE; i++) {
+  //   map3.get(i)
+  // }
+
+  // let p12 = performance.now()
+
+  // for (let i = 0; i < SIZE; i++) {
+  //   map3.delete(i)
+  // }
+
+  // let p13 = performance.now()
 
   console.warn(`[search] Testing for ${SIZE} cases...`)
 
@@ -130,5 +162,21 @@ export default () => {
   //   } ms for deleting ${SIZE} elements`
   // )
 
+  console.log(
+    '----------------------------------------------------------------'
+  )
+
+  console.log(
+    `Red black binary search tree took ${
+      Math.round((p11 - p10) * 100) / 100
+    } ms for putting ${SIZE} elements`
+  )
+  // console.log(
+  //   `Red black binary search tree took ${
+  //     Math.round((p9 - p8) * 100) / 100
+  //   } ms for getting ${SIZE} elements`
+  // )
+
+  console.log(map4.root)
   console.warn('[search] Testing finished.')
 }
