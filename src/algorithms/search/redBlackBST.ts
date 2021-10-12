@@ -227,13 +227,28 @@ export default class RBBST {
   }
 
   /**
-   * Get all keys in the map (or keys in a given key range)
-   * @param  {Key} lo lowest key
-   * @param  {Key} hi highest key
+   * Get all keys
    * @returns array of keys
    */
   getKeys = (): Key[] => {
-    return []
+    const keys: Key[] = []
+
+    this.getKeysR(this.root, keys)
+
+    return keys
+  }
+
+  /**
+   * Internal recursive function for getKey
+   * @param  {TreeNode|null} node
+   * @param  {Key[]} keys
+   */
+  private getKeysR = (node: TreeNode | null, keys: Key[]) => {
+    if (node) {
+      this.getKeysR(node.left, keys)
+      keys.push(node.key)
+      this.getKeysR(node.right, keys)
+    }
   }
 
   /**
@@ -271,6 +286,8 @@ export default class RBBST {
   }
 
   /**
+   * TODO
+   *
    * Get the maximum key that is smaller than `key`
    * @param  {Key} key
    * @returns Key
@@ -280,6 +297,8 @@ export default class RBBST {
   }
 
   /**
+   * TODO
+   *
    * Get the minimum key that is greater than `key`
    * @param  {Key} key
    * @returns Key
@@ -289,6 +308,8 @@ export default class RBBST {
   }
 
   /**
+   * TODO
+   *
    * Get the number of keys that are smaller than `key`
    * @param  {Key} key
    * @returns Number
@@ -298,6 +319,8 @@ export default class RBBST {
   }
 
   /**
+   * TODO
+   *
    * Select the key with the given rank
    * @param  {number} k the rank
    * @returns Key
@@ -314,5 +337,69 @@ export default class RBBST {
   /**
    * Delete the minimum key
    */
-  deleteMin = () => {}
+  deleteMin = () => {
+    if (this.root) {
+      if (this.isRed(this.root.left) && !this.isRed(this.root.right)) {
+        this.root.color = this.RED
+      }
+
+      this.root = this.deleteMinR(this.root)
+
+      if (this.root && !this.isEmpty()) {
+        this.root.color = this.BLACK
+      }
+    }
+  }
+
+  /**
+   * @param  {TreeNode|null=this.root} h
+   */
+  private deleteMinR = (h: TreeNode | null = this.root): TreeNode | null => {
+    if (h) {
+      if (h.left === null) {
+        return null
+      }
+
+      if (!this.isRed(h.left) && !this.isRed(h.left.left)) {
+        h = this.moveRedLeft(h)
+      }
+
+      h.left = this.deleteMinR(h.left)
+
+      return this.balanace(h)
+    }
+
+    return null
+  }
+
+  private moveRedLeft = (h: TreeNode): TreeNode => {
+    this.flipColors(h)
+    if (h.right && this.isRed(h.right.left)) {
+      h.right = this.rotateRight(h.right)
+      h = this.rotateLeft(h)
+    }
+    return h
+  }
+
+  private balanace = (h: TreeNode): TreeNode => {
+    if (this.isRed(h.right)) {
+      h = this.rotateLeft(h)
+    }
+
+    if (this.isRed(h.right) && !this.isRed(h.left)) {
+      h = this.rotateLeft(h)
+    }
+
+    if (this.isRed(h.left) && this.isRed(h.left!.left)) {
+      h = this.rotateRight(h)
+    }
+
+    if (this.isRed(h.left) && this.isRed(h.right)) {
+      this.flipColors(h)
+    }
+
+    h.N = this.size(h.left) + this.size(h.right) + 1
+
+    return h
+  }
 }
