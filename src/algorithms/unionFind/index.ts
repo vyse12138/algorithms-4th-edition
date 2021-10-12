@@ -1,6 +1,6 @@
 import UF1 from './quickFind'
 import UF2 from './quickUnion'
-import UF3 from './weightQuickUnion'
+import UF3 from './weightedQuickUnion'
 import UF4 from './weightedQuickUnionWithPathCompression'
 
 export default () => {
