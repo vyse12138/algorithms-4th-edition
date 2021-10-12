@@ -8,10 +8,7 @@ export default () => {
   const TIMES = 2
   const input = []
   for (let i = 0; i < SIZE * TIMES; i++) {
-    input[i] = [
-      Math.round(Math.random() * SIZE),
-      Math.round(Math.random() * SIZE)
-    ]
+    input[i] = [Math.round(Math.random() * SIZE), Math.round(Math.random() * SIZE)]
   }
 
   const uf1 = new UF1(SIZE + 1)
@@ -56,9 +53,7 @@ Found ${uf1.count} unions in ${SIZE} points.`
 Found ${uf2.count} unions in ${SIZE} points.`
   )
   console.log(
-    `Weighted Quick union method tooked ${
-      Math.round((p4 - p3) * 100) / 100
-    } ms. 
+    `Weighted Quick union method tooked ${Math.round((p4 - p3) * 100) / 100} ms. 
 Found ${uf3.count} unions in ${SIZE} points.`
   )
   console.log(

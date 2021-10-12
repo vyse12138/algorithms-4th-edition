@@ -121,9 +121,7 @@ export default () => {
     } ms for deleting ${SIZE} elements`
   )
 
-  console.log(
-    '----------------------------------------------------------------'
-  )
+  console.log('----------------------------------------------------------------')
 
   console.log(
     `Binary search symbol table took ${
@@ -141,19 +139,13 @@ export default () => {
     } ms for deleting ${SIZE} elements`
   )
 
-  console.log(
-    '----------------------------------------------------------------'
-  )
+  console.log('----------------------------------------------------------------')
 
   console.log(
-    `Binary search tree took ${
-      Math.round((p8 - p7) * 100) / 100
-    } ms for putting ${SIZE} elements`
+    `Binary search tree took ${Math.round((p8 - p7) * 100) / 100} ms for putting ${SIZE} elements`
   )
   console.log(
-    `Binary search tree took ${
-      Math.round((p9 - p8) * 100) / 100
-    } ms for getting ${SIZE} elements`
+    `Binary search tree took ${Math.round((p9 - p8) * 100) / 100} ms for getting ${SIZE} elements`
   )
 
   // console.log(
@@ -162,9 +154,7 @@ export default () => {
   //   } ms for deleting ${SIZE} elements`
   // )
 
-  console.log(
-    '----------------------------------------------------------------'
-  )
+  console.log('----------------------------------------------------------------')
 
   console.log(
     `Red black binary search tree took ${
