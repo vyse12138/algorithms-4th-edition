@@ -97,11 +97,11 @@ export default () => {
 
   let p12 = performance.now()
 
-  // for (let i = 0; i < SIZE; i++) {
-  //   map3.delete(i)
-  // }
+  for (let i = 0; i < SIZE; i++) {
+    map4.delete(i)
+  }
 
-  // let p13 = performance.now()
+  let p13 = performance.now()
 
   console.warn(`[search] Testing for ${SIZE} cases...`)
 
@@ -176,18 +176,12 @@ export default () => {
       Math.round((p12 - p11) * 100) / 100
     } ms for getting ${SIZE} elements`
   )
+  console.log(
+    `Red black binary search tree took ${
+      Math.round((p13 - p12) * 100) / 100
+    } ms for deleting ${SIZE} elements`
+  )
+  // console.log(map4.root)
 
-  console.log(map4.root)
-  console.log(map4.min())
-  console.log(map4.deleteMin())
-  console.log(map4.min())
-  console.log(map4.deleteMin())
-  console.log(map4.min())
-  console.log(map4.deleteMin())
-  console.log(map4.min())
-  console.log(map4.deleteMin())
-  console.log(map4.min())
-  console.log(map4.deleteMin())
-  console.log(map4.min())
   console.warn('[search] Testing finished.')
 }

@@ -119,7 +119,16 @@ export default class RBBST {
    * @param  {Key} key the key
    */
   delete = (key: Key) => {
-    this.root = this.deleteR(this.root, key)
+    if (this.root) {
+      if (!this.isRed(this.root.left) && !this.isRed(this.root.right)) {
+        this.root.color = this.RED
+      }
+      this.root = this.deleteR(this.root, key)
+
+      if (this.root && !this.isEmpty()) {
+        this.root.color = this.BLACK
+      }
+    }
   }
 
   /** Internal recursive function for delete
@@ -127,18 +136,36 @@ export default class RBBST {
    * @param  {Key} key
    * @returns Value
    */
-  private deleteR(node: TreeNode | null, key: Key): TreeNode | null {
-    if (node === null) return null
-    if (key < node.key) {
-      node.left = this.deleteR(node.left, key)
-    } else if (key > node.key) {
-      node.right = this.deleteR(node.right, key)
+  private deleteR(h: TreeNode | null, key: Key): TreeNode | null {
+    if (h === null) return null
+    if (key < h.key) {
+      if (!this.isRed(h.left) && h.left && !this.isRed(h.left.left)) {
+        h = this.moveRedLeft(h)
+      }
+
+      h.left = this.deleteR(h.left, key)
     } else {
-      if (node.right === null) return node.left
-      if (node.left === null) return node.right
-      const n = node
+      if (this.isRed(h.left)) {
+        h = this.rotateRight(h)
+      }
+
+      if (key === h.key && h.right === null) {
+        return null
+      }
+
+      if (!this.isRed(h.right) && h.right && !this.isRed(h.right.left)) {
+        h = this.moveRedRight(h)
+      }
+
+      if (h) {
+        if (key === h.key) {
+          h.right = this.deleteMinR(h.right)
+        } else {
+          h.right = this.deleteR(h.right, key)
+        }
+      }
     }
-    return node
+    return this.balanace(h)
   }
 
   /** rotate a right red link to left
@@ -376,6 +403,14 @@ export default class RBBST {
     this.flipColors(h)
     if (h.right && this.isRed(h.right.left)) {
       h.right = this.rotateRight(h.right)
+      h = this.rotateLeft(h)
+    }
+    return h
+  }
+
+  private moveRedRight = (h: TreeNode): TreeNode => {
+    this.flipColors(h)
+    if (h.left && !this.isRed(h.left.left)) {
       h = this.rotateLeft(h)
     }
     return h
