@@ -66,7 +66,7 @@ setInterval(() => {
   board.value = boardTemp
 }, 100)
 
-document.addEventListener('keydown', (e) => {
+document.addEventListener('keydown', e => {
   switch (e.key) {
     case 'a':
       if (velocity.value.vx !== 1) {
@@ -102,7 +102,6 @@ document.addEventListener('keydown', (e) => {
       }
       return
   }
-  console.log(e)
 })
 </script>
 
