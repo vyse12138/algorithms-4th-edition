@@ -31,6 +31,7 @@ Implementing it's algorithms in TypeScript
 - [Binary Search Symbol Table](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/search/binarySearchST.ts)
 - [Binary Search Tree](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/search/binarySearchTree.ts)
 - [Red Black Binary Search Tree](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/search/redBlackBST.ts)
+- [Hash Table (linear probing)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/search/hashTable.ts)
 
 ## Try It Yourself
 
