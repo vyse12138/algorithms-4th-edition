@@ -15,7 +15,7 @@ export default class Insertion {
    */
   static sort = (a: Comparable[], lo: number = 0, hi: number = a.length) => {
     for (let i = lo; i < hi; i++) {
-      for (let j = i + 1; j > 0 && a[j - 1] > a[j]; j--) {
+      for (let j = i; j > 0 && a[j - 1] > a[j]; j--) {
         Insertion.exch(a, j, j - 1)
       }
     }
