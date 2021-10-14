@@ -1,7 +1,7 @@
 /**
  * Key of the map
  */
-export type Key = string | number | null
+export type Key = string | number
 
 /**
  * Value of the map

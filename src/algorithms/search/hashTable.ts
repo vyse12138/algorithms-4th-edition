@@ -15,7 +15,7 @@ export default class HT {
   // Table size
   private M: number
 
-  private keys: Key[] = []
+  private keys: Array<Key | null> = []
   private values: Value[] = []
 
   constructor(M: number = 16) {
@@ -28,7 +28,7 @@ export default class HT {
    * @param  {Key} key the key
    * @param  {Value} val the value related to the key
    */
-  put = (key: Key, value: Value) => {
+  put = (key: Key | null, value: Value) => {
     if (this.N > this.M / 2) {
       this.resize(2 * this.M)
     }
@@ -106,7 +106,7 @@ export default class HT {
    * @param  {Key} key
    * @returns number hashcode
    */
-  private hashcode = (key: Key): number => {
+  private hashcode = (key: Key | null): number => {
     if (typeof key === 'string') {
       let hash = 0
       for (let i = 0; i < key.length; i++) {
@@ -127,7 +127,7 @@ export default class HT {
    * @param  {Key} key
    * @returns number hashcode
    */
-  private hash = (key: Key): number => {
+  private hash = (key: Key | null): number => {
     return (this.hashcode(key) & 0x7fffffff) % this.M
   }
 
