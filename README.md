@@ -1,4 +1,4 @@
-# ALGORITHMS
+# algorithms-4th-edition
 
 Reading notes on [Algorithms 4th Edition](https://algs4.cs.princeton.edu/home/)
 
