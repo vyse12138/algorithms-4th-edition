@@ -5,13 +5,29 @@ export default class Graph {
   /**
    * Constructor of an undirected graph
    *
+   * Input array example:
+   * [3, 2, 0, 1, 2, 1]
+   *
+   * It means a graph with:
+   *
+   * 3 vertices (element at index 0)
+   *
+   * 2 edges (element at index 1)
+   *
+   * edge from vertex 0 to vertex 1 (elements at index 2 and 3)
+   *
+   * edge from vertex 2 to vertex 1 (elements at index 4 and 5)
+   *
    * @param  {array} input Array representing the graph
    */
+  i = 0
   constructor(input: number[]) {
     this.V = input.shift() ?? 0
     this.E = input.shift() ?? 0
+    this.adj = new Array(this.V).fill(null).map(e => [])
     for (let i = 0; i < input.length; i += 2) {
-      this.addEdge(i, i + 1)
+      this.addEdge(input[i], input[i + 1])
+      this.E--
     }
   }
 
@@ -28,7 +44,7 @@ export default class Graph {
   /**
    * Table of adjacent vertices of each vertex
    */
-  adj: number[][] = []
+  adj: number[][]
 
   /**
    * Add an edge between two vertices
