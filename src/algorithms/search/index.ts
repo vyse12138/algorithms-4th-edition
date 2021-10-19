@@ -106,22 +106,22 @@ export default () => {
   // HT
   let p13 = performance.now()
 
-  for (let i = 0; i < SIZE; i++) {
-    map5.put(Math.floor(Math.random() * SIZE).toString(), Math.floor(Math.random() * SIZE))
-  }
+  // for (let i = 0; i < SIZE; i++) {
+  //   map5.put(Math.floor(Math.random() * SIZE).toString(), Math.floor(Math.random() * SIZE))
+  // }
 
-  let p14 = performance.now()
+  // let p14 = performance.now()
 
-  for (let i = 0; i < SIZE; i++) {
-    map5.get(i.toString())
-  }
+  // for (let i = 0; i < SIZE; i++) {
+  //   map5.get(i.toString())
+  // }
 
-  let p15 = performance.now()
+  // let p15 = performance.now()
 
-  for (let i = 0; i < SIZE; i++) {
-    map5.delete(i.toString())
-  }
-  let p16 = performance.now()
+  // for (let i = 0; i < SIZE; i++) {
+  //   map5.delete(i.toString())
+  // }
+  // let p16 = performance.now()
 
   // Testing logs
   console.warn(`[search] Testing for ${SIZE} cases...`)
@@ -142,7 +142,9 @@ export default () => {
     } ms for deleting ${SIZE} elements`
   )
 
-  console.log('----------------------------------------------------------------')
+  console.log(
+    '----------------------------------------------------------------'
+  )
 
   console.log(
     `Binary search symbol table took ${
@@ -160,13 +162,19 @@ export default () => {
     } ms for deleting ${SIZE} elements`
   )
 
-  console.log('----------------------------------------------------------------')
+  console.log(
+    '----------------------------------------------------------------'
+  )
 
   console.log(
-    `Binary search tree took ${Math.round((p8 - p7) * 100) / 100} ms for putting ${SIZE} elements`
+    `Binary search tree took ${
+      Math.round((p8 - p7) * 100) / 100
+    } ms for putting ${SIZE} elements`
   )
   console.log(
-    `Binary search tree took ${Math.round((p9 - p8) * 100) / 100} ms for getting ${SIZE} elements`
+    `Binary search tree took ${
+      Math.round((p9 - p8) * 100) / 100
+    } ms for getting ${SIZE} elements`
   )
 
   // console.log(
@@ -175,7 +183,9 @@ export default () => {
   //   } ms for deleting ${SIZE} elements`
   // )
 
-  console.log('----------------------------------------------------------------')
+  console.log(
+    '----------------------------------------------------------------'
+  )
 
   console.log(
     `Red black binary search tree took ${
@@ -194,17 +204,17 @@ export default () => {
   )
   // console.log(map4.root)
 
-  console.log('----------------------------------------------------------------')
+  // console.log('----------------------------------------------------------------')
 
-  console.log(
-    `Hash table took ${Math.round((p14 - p13) * 100) / 100} ms for putting ${SIZE} elements`
-  )
-  console.log(
-    `Hash table took ${Math.round((p15 - p14) * 100) / 100} ms for getting ${SIZE} elements`
-  )
-  console.log(
-    `Hash table took ${Math.round((p16 - p15) * 100) / 100} ms for deleting ${SIZE} elements`
-  )
+  // console.log(
+  //   `Hash table took ${Math.round((p14 - p13) * 100) / 100} ms for putting ${SIZE} elements`
+  // )
+  // console.log(
+  //   `Hash table took ${Math.round((p15 - p14) * 100) / 100} ms for getting ${SIZE} elements`
+  // )
+  // console.log(
+  //   `Hash table took ${Math.round((p16 - p15) * 100) / 100} ms for deleting ${SIZE} elements`
+  // )
 
   console.warn('[search] Testing finished.')
 }
