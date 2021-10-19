@@ -1,6 +1,7 @@
 {
-  "name": "algorithms",
+  "name": "algorithms-4th-edition",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
