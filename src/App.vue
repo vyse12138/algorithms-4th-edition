@@ -5,7 +5,7 @@ import Snake from './components/Snake.vue'
 </script>
 
 <template>
-  <Snake msg="Hello Vue 3 + TypeScript + Vite" />
+  <!-- <Snake msg="Hello Vue 3 + TypeScript + Vite" /> -->
 </template>
 
 <style>
