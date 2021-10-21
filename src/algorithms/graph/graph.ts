@@ -24,7 +24,9 @@ export default class Graph {
   constructor(input: number[]) {
     this.V = input.shift() ?? 0
     this.E = input.shift() ?? 0
+
     this.adj = new Array(this.V).fill(null).map(e => [])
+
     for (let i = 0; i < input.length; i += 2) {
       this.addEdge(input[i], input[i + 1])
       this.E--
