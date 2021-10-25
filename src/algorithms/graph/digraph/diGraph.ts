@@ -1,9 +1,9 @@
 /**
- * Class of undirected graph
+ * Class of directed graph
  */
 export default class Graph {
   /**
-   * Constructor of an undirected graph
+   * Constructor of an directed graph
    *
    * Input array example:
    * [3, 2, 0, 1, 2, 1]
@@ -43,30 +43,44 @@ export default class Graph {
   E: number
 
   /**
-   * Table of adjacent vertices of each vertex
+   * Table of adjacent vertices of each vertex, starting at that vertex
    */
   adj: number[][]
 
   /**
-   * Add an edge between two vertices
+   * Add an edge from v to w
    *
-   * @param  {number} v vertex 1
-   * @param  {number} w vertex 2
+   * @param  {number} v starting vertex
+   * @param  {number} w finishing vertex
    */
   addEdge = (v: number, w: number) => {
     this.adj[v].push(w)
-    this.adj[w].push(v)
     this.E++
   }
 
   /**
-   * Get all adjacent vertices of a given vertex
+   * Get all adjacent vertices of a given vertex, starting at that vertex
    *
    * @param  {number} v
    * @returns array of vertices
    */
   getAdj = (v: number): number[] => {
     return this.adj[v]
+  }
+
+  /**
+   * Return the reverse of the graph
+   *
+   * @returns Graph
+   */
+  reverse = (): Graph => {
+    const graph = new Graph([])
+    for (let v = 0; v < this.V; v++) {
+      for (let w of this.getAdj(v)) {
+        graph.addEdge(w, v)
+      }
+    }
+    return graph
   }
 
   /**

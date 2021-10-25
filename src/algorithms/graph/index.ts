@@ -1,11 +1,12 @@
 import Graph from './graph'
+import DiGraph from './digraph/diGraph'
 import DFSSearch from './depthFirstSearch'
 import BFS from './breadthFirstPath'
 import DFS from './depthFirstPath'
 import CC from './connectedComponents'
 
 export default () => {
-  const SIZE = 100
+  const SIZE = 5000
   let graphData: number[] = []
   const generate = () => {
     graphData = []
@@ -22,25 +23,43 @@ export default () => {
   }
 
   generate()
-  let graph = new Graph(graphData)
+
+  // let graph = new Graph(graphData)
+  let graph = new DiGraph(graphData)
   let search = new DFSSearch(graph, 0)
+
   // console.log(search.marked)
   // for (let i = 0; i < 10; i++) {
   //   console.log(search.isMarked(i))
   // }
-
-  let dfs = new DFS(graph, 0)
-
-  for (let i = 1; i < 11; i++) {
-    console.log(dfs.pathTo(i))
+  for (let k = 0; k < 30; k++) {
+    let dfs = new DFS(graph, k)
+    let j = 0
+    for (let i = 0; j < 5 && i < SIZE; i++) {
+      if (dfs.hasPathTo(i)) {
+        console.log(dfs.pathTo(i))
+        j++
+      }
+    }
+    console.log(
+      '----------------------------------------------------------------'
+    )
   }
-
-  let bfs = new BFS(graph, 0)
   console.log(
     '----------------------------------------------------------------'
   )
-  for (let i = 1; i < 11; i++) {
-    console.log(bfs.pathTo(i))
+  for (let k = 0; k < 30; k++) {
+    let bfs = new BFS(graph, k)
+    let j = 0
+    for (let i = 0; j < 5 && i < SIZE; i++) {
+      if (bfs.hasPathTo(i)) {
+        console.log(bfs.pathTo(i))
+        j++
+      }
+    }
+    console.log(
+      '----------------------------------------------------------------'
+    )
   }
 
   console.log(
