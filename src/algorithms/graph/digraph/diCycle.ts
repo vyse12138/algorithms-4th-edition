@@ -10,11 +10,16 @@ export default class DFS {
    * @param  {Graph} g the graph to search
    * @param  {number} s the starting vertex
    */
-  constructor(g: Graph, s: number) {
+  constructor(g: Graph) {
     this.edgeTo = new Array(g.V).fill(-1)
     this.marked = new Array(g.V).fill(false)
+    this.onStack = new Array(g.V).fill(false)
 
-    this.dfs(g, s)
+    for (let v = 0; v < g.V; v++) {
+      if (!this.marked[v]) {
+        this.dfs(g, v)
+      }
+    }
   }
 
   /**
@@ -27,10 +32,8 @@ export default class DFS {
    */
   edgeTo: number[]
 
-  /**
-   * Total connected vertices to the starting vertex
-   */
-  count = 0
+  cycle: number[] = []
+  onStack: boolean[] = []
 
   /**
    * Depth first search
@@ -39,16 +42,36 @@ export default class DFS {
    * @param  {number} v vertex
    */
   private dfs = (g: Graph, v: number) => {
+    this.onStack[v] = true
     this.marked[v] = true
-    this.count++
 
     for (let w of g.getAdj(v)) {
-      if (!this.marked[w]) {
+      if (this.hasCycle()) {
+        return
+      } else if (!this.marked[w]) {
+        this.edgeTo[w] = v
         this.dfs(g, w)
+      } else if (this.onStack[w]) {
+        this.cycle = []
+        for (let x = v; x != w; x = this.edgeTo[x]) {
+          this.cycle.push(x)
+        }
+        this.cycle.push(w)
+        this.cycle.push(v)
       }
     }
+    this.onStack[v] = false
   }
 
+  /**
+   * Check if has cycle
+   *
+   *
+   * @return {boolean} true if has cycle
+   */
+  hasCycle = (): boolean => {
+    return this.cycle.length ? true : false
+  }
   /**
    * Check if vertex w is connected to the starting vertex in the given graph
    *
