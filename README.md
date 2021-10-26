@@ -33,6 +33,20 @@ Implementing it's algorithms in TypeScript
 - [Red Black Binary Search Tree](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/search/redBlackBST.ts)
 - [Hash Table (linear probing)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/search/hashTable.ts)
 
+### Graph
+
+- [Undirected Graph](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/graph/graph.ts)
+  - [DFS (search)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/graph/depthFirstSearch.ts)
+  - [DFS (path)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/graph/depthFirstPath.ts)
+  - [BFS (path)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/graph/breadthFirstPath.ts)
+  - [Connected Components](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/graph/connectedComponents.ts)
+- [Directed Graph](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/digraph/diGraph.ts)
+  - [DFS (search)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/digraph/diDepthFirstSearch.ts)
+  - [DFS (order)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/digraph/diDepthFirstOrder.ts)
+  - [Cycle](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/digraph/diCycle.ts)
+  - [Topological Order](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/digraph/diTopologicalOrder.ts)
+  - [Strongly Connected Components](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/digraph/diSCC.ts)
+
 ## Try It Yourself
 
 There are speed testing for each algorithm above, u can check it out by clone the repo then navigate to it and:
