@@ -1,5 +1,4 @@
 import Graph from './graph'
-import DiGraph from './digraph/diGraph'
 import DFSSearch from './depthFirstSearch'
 import BFS from './breadthFirstPath'
 import DFS from './depthFirstPath'
@@ -25,7 +24,7 @@ export default () => {
   generate()
 
   // let graph = new Graph(graphData)
-  let graph = new DiGraph(graphData)
+  let graph = new Graph(graphData)
   let search = new DFSSearch(graph, 0)
 
   // console.log(search.marked)
