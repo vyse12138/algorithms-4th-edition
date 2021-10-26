@@ -1,9 +1,8 @@
 import Graph from './digraph'
-
-import Cycle from './diCycle'
+import Topological from './diTopologicalOrder'
 
 export default () => {
-  const SIZE = 5000
+  const SIZE = 50
   let graphData: number[] = []
   const generate = () => {
     graphData = []
@@ -23,7 +22,13 @@ export default () => {
 
   let graph = new Graph(graphData)
 
-  let cycle = new Cycle(graph)
+  let topological = new Topological(graph)
 
-  console.log(cycle.cycle)
+  console.log(
+    `The graph ${
+      topological.isDAG()
+        ? "has cycle, so it can't be topological ordered"
+        : `has no cycle, the order of it is: ${topological.order}`
+    }`
+  )
 }
