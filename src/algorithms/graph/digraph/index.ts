@@ -1,6 +1,6 @@
 import Graph from './digraph'
 import Topological from './diTopologicalOrder'
-
+import SCC from './diSCC'
 export default () => {
   const SIZE = 50
   let graphData: number[] = []
@@ -31,4 +31,8 @@ export default () => {
         : `has no cycle, the order of it is: ${topological.order}`
     }`
   )
+
+  let scc = new SCC(graph)
+
+  console.log(`The graph has ${scc.count} strongly connected components`)
 }

@@ -74,7 +74,7 @@ export default class Graph {
    * @returns Graph
    */
   reverse = (): Graph => {
-    const graph = new Graph([])
+    const graph = new Graph([this.V])
     for (let v = 0; v < this.V; v++) {
       for (let w of this.getAdj(v)) {
         graph.addEdge(w, v)
