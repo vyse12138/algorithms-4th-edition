@@ -1,5 +1,5 @@
 import graph from './graph'
-import diGraph from './asd'
+import diGraph from './diGraph'
 export default () => {
   // graph()
   // diGraph()
