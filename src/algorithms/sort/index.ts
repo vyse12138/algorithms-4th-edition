@@ -90,23 +90,51 @@ export default () => {
 
   console.warn(`[sort] Testing for ${SIZE} cases...`)
 
-  console.log(`Default sort ${s3 ? `took ${Math.round((p6 - p5) * 100) / 100} ms` : 'failed...'}`)
-  console.log(`Selection sort ${s1 ? `took ${Math.round((p2 - p1) * 100) / 100} ms` : 'failed...'}`)
+  console.log(
+    `Default sort ${
+      s3 ? `took ${Math.round((p6 - p5) * 100) / 100} ms` : 'failed...'
+    }`
+  )
+  console.log(
+    `Selection sort ${
+      s1 ? `took ${Math.round((p2 - p1) * 100) / 100} ms` : 'failed...'
+    }`
+  )
 
-  console.log(`Insertion sort ${s2 ? `took ${Math.round((p4 - p3) * 100) / 100} ms` : 'failed...'}`)
-  console.log(`Shell sort ${s4 ? `took ${Math.round((p8 - p7) * 100) / 100} ms` : 'failed...'}`)
   console.log(
-    `Merge sort (top down) ${s5 ? `took ${Math.round((p10 - p9) * 100) / 100} ms` : 'failed...'}`
+    `Insertion sort ${
+      s2 ? `took ${Math.round((p4 - p3) * 100) / 100} ms` : 'failed...'
+    }`
   )
   console.log(
-    `Merge sort (bottom up) ${s6 ? `took ${Math.round((p12 - p11) * 100) / 100} ms` : 'failed...'}`
-  )
-  console.log(`Quick sort ${s7 ? `took ${Math.round((p14 - p13) * 100) / 100} ms` : 'failed...'}`)
-  console.log(
-    `Quick sort (3 ways)${s8 ? `took ${Math.round((p16 - p15) * 100) / 100} ms` : 'failed...'}`
+    `Shell sort ${
+      s4 ? `took ${Math.round((p8 - p7) * 100) / 100} ms` : 'failed...'
+    }`
   )
   console.log(
-    `Priority Queue${s9 ? `took ${Math.round((p18 - p17) * 100) / 100} ms` : 'failed...'}`
+    `Merge sort (top down) ${
+      s5 ? `took ${Math.round((p10 - p9) * 100) / 100} ms` : 'failed...'
+    }`
+  )
+  console.log(
+    `Merge sort (bottom up) ${
+      s6 ? `took ${Math.round((p12 - p11) * 100) / 100} ms` : 'failed...'
+    }`
+  )
+  console.log(
+    `Quick sort ${
+      s7 ? `took ${Math.round((p14 - p13) * 100) / 100} ms` : 'failed...'
+    }`
+  )
+  console.log(
+    `Quick sort (3 ways)${
+      s8 ? `took ${Math.round((p16 - p15) * 100) / 100} ms` : 'failed...'
+    }`
+  )
+  console.log(
+    `Priority Queue${
+      s9 ? `took ${Math.round((p18 - p17) * 100) / 100} ms` : 'failed...'
+    }`
   )
   console.warn('[sort] Testing finished.')
 }
