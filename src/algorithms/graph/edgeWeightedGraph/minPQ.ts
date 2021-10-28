@@ -32,6 +32,10 @@ export default class PriorityQueue {
     this.swim(this.N)
   }
 
+  contains = (v: Edge) => {
+    return this.pq.includes(v)
+  }
+
   /**
    * Return the maximum element
    *
@@ -90,7 +94,7 @@ export default class PriorityQueue {
    * @param i Index of the first element
    * @param j Index of the secondelement
    */
-  private exch = (i: number, j: number) => {
+  exch = (i: number, j: number) => {
     ;[this.pq[i], this.pq[j]] = [this.pq[j], this.pq[i]]
   }
 
