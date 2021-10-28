@@ -4,7 +4,7 @@ import unionFind from './algorithms/unionFind'
 import sort from './algorithms/sort'
 import linkedList from './algorithms/linkedList'
 import search from './algorithms/search'
-import graph from './algorithms/graph/digraph'
+import graph from './algorithms/graph'
 
 createApp(App).mount('#app')
 
