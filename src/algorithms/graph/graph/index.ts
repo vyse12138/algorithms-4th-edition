@@ -5,7 +5,7 @@ import DFS from './depthFirstPath'
 import CC from './connectedComponents'
 
 export default () => {
-  const SIZE = 5000
+  const SIZE = 15000
   let graphData: number[] = []
   const generate = () => {
     graphData = []
@@ -23,51 +23,37 @@ export default () => {
 
   generate()
 
-  // let graph = new Graph(graphData)
   let graph = new Graph(graphData)
-  let search = new DFSSearch(graph, 0)
 
-  // console.log(search.marked)
-  // for (let i = 0; i < 10; i++) {
-  //   console.log(search.isMarked(i))
-  // }
-  for (let k = 0; k < 30; k++) {
-    let dfs = new DFS(graph, k)
-    let j = 0
-    for (let i = 0; j < 5 && i < SIZE; i++) {
-      if (dfs.hasPathTo(i)) {
-        console.log(dfs.pathTo(i))
-        j++
-      }
-    }
-    console.log(
-      '----------------------------------------------------------------'
-    )
-  }
-  console.log(
-    '----------------------------------------------------------------'
-  )
-  for (let k = 0; k < 30; k++) {
-    let bfs = new BFS(graph, k)
-    let j = 0
-    for (let i = 0; j < 5 && i < SIZE; i++) {
-      if (bfs.hasPathTo(i)) {
-        console.log(bfs.pathTo(i))
-        j++
-      }
-    }
-    console.log(
-      '----------------------------------------------------------------'
-    )
-  }
+  let p1 = performance.now()
 
-  console.log(
-    '----------------------------------------------------------------'
-  )
+  let dfs = new DFS(graph, 0)
+
+  let p2 = performance.now()
+
+  let bfs = new BFS(graph, 0)
+
+  let p3 = performance.now()
 
   let cc = new CC(graph)
 
+  let p4 = performance.now()
+
   console.log(
-    `there are ${cc.count} connected components set in the graph of ${SIZE} vertices`
+    `DFS tooked ${
+      Math.round((p2 - p1) * 100) / 100
+    } ms to find the path for ${SIZE} vertices`
+  )
+
+  console.log(
+    `BFS tooked ${
+      Math.round((p3 - p2) * 100) / 100
+    } ms to find the path for ${SIZE} vertices`
+  )
+
+  console.log(
+    `CC tooked ${Math.round((p4 - p3) * 100) / 100} to find ${
+      cc.count
+    } connected components set in the graph of ${SIZE} vertices`
   )
 }
