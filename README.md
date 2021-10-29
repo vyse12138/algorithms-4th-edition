@@ -40,12 +40,12 @@ Implementing it's algorithms in TypeScript
   - [DFS (path)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/graph/depthFirstPath.ts)
   - [BFS (path)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/graph/breadthFirstPath.ts)
   - [Connected Components](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/graph/connectedComponents.ts)
-- [Directed Graph](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/digraph/diGraph.ts)
-  - [DFS (search)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/digraph/diDepthFirstSearch.ts)
-  - [DFS (order)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/digraph/diDepthFirstOrder.ts)
-  - [Cycle](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/digraph/diCycle.ts)
-  - [Topological Order](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/digraph/diTopologicalOrder.ts)
-  - [Strongly Connected Components](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/digraph/diSCC.ts)
+- [Directed Graph](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/diGraph/diGraph.ts)
+  - [DFS (search)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/diGraph/diDepthFirstSearch.ts)
+  - [DFS (order)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/diGraph/diDepthFirstOrder.ts)
+  - [Cycle](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/diGraph/diCycle.ts)
+  - [Topological Order](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/diGraph/diTopologicalOrder.ts)
+  - [Strongly Connected Components](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/diGraph/diSCC.ts)
 
 ## Try It Yourself
 
