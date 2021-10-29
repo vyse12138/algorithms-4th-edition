@@ -31,6 +31,7 @@ export default class Graph {
     for (let i = 0; i < input.length; i += 3) {
       let e = new Edge(input[i], input[i + 1], input[i + 2])
       this.addEdge(e)
+      this.edges.push(e)
       this.E--
     }
   }
@@ -49,6 +50,8 @@ export default class Graph {
    * Table of adjacent vertices of each vertex
    */
   adj: Edge[][]
+
+  edges: Edge[] = []
 
   /**
    * Add an edge between two vertices

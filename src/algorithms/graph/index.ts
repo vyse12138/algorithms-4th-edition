@@ -2,7 +2,19 @@ import graph from './graph'
 import diGraph from './diGraph'
 import eWGraph from './edgeWeightedGraph'
 export default () => {
-  // graph()
+  console.warn(`[graph] Testing...`)
+
+  graph()
+
+  console.log(
+    '----------------------------------------------------------------'
+  )
+
   // diGraph()
+  console.log(
+    '----------------------------------------------------------------'
+  )
   eWGraph()
+
+  console.warn(`[graph] Testing finished.`)
 }
