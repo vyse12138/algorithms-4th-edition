@@ -1,10 +1,17 @@
 import Graph from './edgeWeightedDiGraph'
 import Edge from './diEdge'
+import Topological from '.edgeWeightedDiTopologicalOrder'
+
 export default class SP {
   constructor(g: Graph, s: number) {
     this.distTo = new Array(g.V).fill(Number.MAX_SAFE_INTEGER)
 
     this.distTo[s] = 0
+    let top = new Topological(g)
+
+    for (let v of top.order) {
+      this.relaxVertex(g, v)
+    }
   }
 
   pathTo: Edge[] = []

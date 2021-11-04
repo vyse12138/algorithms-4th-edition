@@ -1,5 +1,7 @@
 import Graph from './edgeWeightedDiGraph'
 import DijkstraSP from './dijkstraSP'
+import AcyclicSP from './acyclicSP'
+
 export default () => {
   const SIZE = 5000
   let graphData: number[] = []
@@ -29,13 +31,6 @@ export default () => {
   let p2 = performance.now()
 
   let p3 = performance.now()
-  // for (let i = 0; i < SIZE; i++) {
-  //   console.log(
-  //     `Dijkstra algorithm tooked ${
-  //       Math.round((p2 - p1) * 100) / 100
-  //     } ms to find a path to vertex ${i}: ${dijkstraSP.getPath(i)}`
-  //   )
-  // }
 
   console.log(
     `Dijkstra algorithm tooked ${
