@@ -5,6 +5,7 @@ import sort from './algorithms/sort'
 import linkedList from './algorithms/linkedList'
 import search from './algorithms/search'
 import graph from './algorithms/graph'
+import string from './algorithms/string'
 
 createApp(App).mount('#app')
 
@@ -17,3 +18,5 @@ console.log('----------------------------------------------------------------')
 search()
 console.log('----------------------------------------------------------------')
 graph()
+console.log('----------------------------------------------------------------')
+string()
