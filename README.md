@@ -36,16 +36,30 @@ Implementing it's algorithms in TypeScript
 ### Graph
 
 - [Undirected Graph](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/graph/graph.ts)
+
   - [DFS (search)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/graph/depthFirstSearch.ts)
   - [DFS (path)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/graph/depthFirstPath.ts)
   - [BFS (path)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/graph/breadthFirstPath.ts)
   - [Connected Components](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/graph/connectedComponents.ts)
+
 - [Directed Graph](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/diGraph/diGraph.ts)
+
   - [DFS (search)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/diGraph/diDepthFirstSearch.ts)
   - [DFS (order)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/diGraph/diDepthFirstOrder.ts)
   - [Cycle](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/diGraph/diCycle.ts)
   - [Topological Order](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/diGraph/diTopologicalOrder.ts)
   - [Strongly Connected Components](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/diGraph/diSCC.ts)
+
+- [Undirected Edge-Weighted Graph](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/edgeWeightedGraph/edgeWeightedGraph.ts)
+
+  - [Minimal Spanning Tree (Prim algorithm)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/edgeWeightedGraph/lazyPrimMST.ts)
+  - [Minimal Spanning Tree (Kruskal algorithm)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/edgeWeightedGraph/kruskalMST.ts)
+
+- [Directed Edge-Weighted Graph](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/edgeWeightedDiGraph/edgeWeightedDiGraph.ts)
+
+  - [Shortest Path](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/edgeWeightedDiGraph/shortestPath.ts)
+  - [Shortest Path (dijkstra algorithm)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/edgeWeightedDiGraph/dijkstraSP.ts)
+  - [Shortest Path (acyclic algorithm)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/edgeWeightedDiGraph/acyclicSP.ts)
 
 ## Try It Yourself
 
