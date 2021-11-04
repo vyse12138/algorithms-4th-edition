@@ -27,7 +27,7 @@ export default class ST {
    */
   put = (key: Key, value: Value) => {
     if (this.has(key)) {
-      this.array.find((n) => n.key === key)!.value = value
+      this.array.find(n => n.key === key)!.value = value
       return
     }
     this.array.push({ key, value })
@@ -40,7 +40,7 @@ export default class ST {
    * @returns Value
    */
   get = (key: Key): Value => {
-    return this.array.find((n) => n.key === key)?.value ?? null
+    return this.array.find(n => n.key === key)?.value ?? null
   }
 
   /**
@@ -75,7 +75,7 @@ export default class ST {
    * @returns size of the map
    */
   size = (): number => {
-    return this.array.filter((n) => n.value !== null).length
+    return this.array.filter(n => n.value !== null).length
   }
 
   /**
@@ -85,7 +85,7 @@ export default class ST {
    * @returns array of keys
    */
   keys = (lo: Key = this.min(), hi: Key = this.max()): Key[] => {
-    return this.array.filter((n) => this.has(n.key)).map((n) => n.key)
+    return this.array.filter(n => this.has(n.key)).map(n => n.key)
   }
 
   /**
