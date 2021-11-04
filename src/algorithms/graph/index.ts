@@ -1,6 +1,8 @@
 import graph from './graph'
 import diGraph from './diGraph'
 import eWGraph from './edgeWeightedGraph'
+import eWDiGraph from './edgeWeightedDiGraph'
+
 export default () => {
   console.warn(`[graph] Testing...`)
 
@@ -16,6 +18,12 @@ export default () => {
     '----------------------------------------------------------------'
   )
   eWGraph()
+
+  console.log(
+    '----------------------------------------------------------------'
+  )
+
+  eWDiGraph()
 
   console.warn(`[graph] Testing finished.`)
 }

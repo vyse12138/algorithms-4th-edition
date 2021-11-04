@@ -1,7 +1,11 @@
 import Graph from './edgeWeightedDiGraph'
 import Edge from './diEdge'
 export default class SP {
-  constructor(g: Graph, s: number) {}
+  constructor(g: Graph, s: number) {
+    this.distTo = new Array(g.V).fill(Number.MAX_SAFE_INTEGER)
+
+    this.distTo[s] = 0
+  }
 
   pathTo: Edge[] = []
   distTo: number[] = []
