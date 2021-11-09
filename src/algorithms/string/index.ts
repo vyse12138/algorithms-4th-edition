@@ -1,6 +1,6 @@
-import keyIndexCounting from './keyIndexCounting'
-import LSD from './radixSortLSD'
-import MSD from './radixSortMSD'
+import keyIndexCounting from './radixSort/keyIndexCounting'
+import LSD from './radixSort/radixSortLSD'
+import MSD from './radixSort/radixSortMSD'
 
 export default () => {
   const SIZE = 50000
