@@ -6,8 +6,6 @@ export default () => {
   const SIZE = 50000
   const LENGTH = 8
 
-  console.warn(`[string] Testing for ${SIZE} cases...`)
-
   // char code for a-z is 97-122
   let s = ''
   for (let i = 0; i < SIZE; i++) {
@@ -62,6 +60,4 @@ export default () => {
       Math.round((p6 - p5) * 100) / 100
     } ms for ${SIZE} strings with 0 to ${LENGTH} chars`
   )
-
-  console.warn(`[string] Testing finished.`)
 }
