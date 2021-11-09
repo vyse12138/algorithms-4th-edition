@@ -1,3 +1,5 @@
+import string from '.'
+
 type Value = number | null
 
 class Node {
@@ -53,22 +55,41 @@ export default class StringST {
     return x
   }
 
-  delete = (key: string) => {}
+  // delete = (key: string) => {}
 
-  contains = (key: string): boolean => {
-    return false
+  // contains = (key: string): boolean => {
+  //   return false
+  // }
+
+  // isEmpty = (): boolean => {
+  //   return false
+  // }
+
+  // longestPrefixOf = (s: string): string => {
+  //   return ''
+  // }
+
+  keysWithPrefix = (pre: string): string[] => {
+    let queue: string[] = []
+
+    let root = this.getR(this.root, pre, 0)
+
+    if (root) {
+      this.collect(root, pre, queue)
+    }
+
+    return queue
   }
 
-  isEmpty = (): boolean => {
-    return false
-  }
+  collect = (x: Node, pre: string, queue: string[]) => {
+    if (x === null) return
+    if (x.val !== null) {
+      queue.push(pre)
+    }
 
-  longestPrefixOf = (s: string): string => {
-    return ''
-  }
-
-  keysWithPrefix = (s: string): string[] => {
-    return []
+    for (let c = 0; c < this.R; c++) {
+      this.collect(x.next[c], pre + c, queue)
+    }
   }
 
   /**
@@ -79,5 +100,9 @@ export default class StringST {
    */
   keysThatMatch = (s: string): string[] => {
     return []
+  }
+
+  getKeys = (): string[] => {
+    return this.keysWithPrefix('')
   }
 }
