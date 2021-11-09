@@ -1,5 +1,3 @@
-import string from '.'
-
 type Value = number | null
 
 class Node {
