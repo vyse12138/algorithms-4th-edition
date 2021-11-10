@@ -61,6 +61,19 @@ Implementing it's algorithms in TypeScript
   - [Shortest Path (dijkstra algorithm)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/edgeWeightedDiGraph/dijkstraSP.ts)
   - [Shortest Path (acyclic algorithm)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/graph/edgeWeightedDiGraph/acyclicSP.ts)
 
+### String
+
+- [Radix Sort](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/string/radixSort)
+
+  - [Radix Sort (LSD)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/string/radixSort/radixSortLSD.ts)
+  - [Radix Sort (MSD)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/string/radixSort/radixSortMSD.ts)
+
+- [Search](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/string/search)
+
+  - [Search (Burtal)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/string/search/search.ts)
+  - [Search (KMP algorithm)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/string/search/searchKMP.ts)
+  - [Search (BM algorithm)](https://github.com/Vyse12138/algorithms/blob/main/src/algorithms/string/search/searchBM.ts)
+
 ## Try It Yourself
 
 There are speed testing for each algorithm above, u can check it out by clone the repo then navigate to it and:
