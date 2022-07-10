@@ -2,7 +2,7 @@
 
 Reading notes on [Algorithms 4th Edition](https://algs4.cs.princeton.edu/home/)
 
-Implementing it's algorithms in TypeScript
+Implement its algorithms in TypeScript.
 
 ## Algorithms In This Repo
 
