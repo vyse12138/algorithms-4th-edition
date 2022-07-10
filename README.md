@@ -1,6 +1,6 @@
 # algorithms-4th-edition
 
-Reading notes on [Algorithms 4th Edition](https://algs4.cs.princeton.edu/home/)
+Reading notes for [Algorithms 4th Edition](https://algs4.cs.princeton.edu/home/)
 
 Implement its algorithms in TypeScript.
 
